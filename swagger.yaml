@@ -1,0 +1,141 @@
+openapi: 3.0.0
+info:
+  title: Inventory Service API
+  description: API для сервісу інвентаризації (Лабораторна робота №6)
+  version: 1.0.0
+servers:
+  - url: http://localhost:3005
+    description: Локальний сервер
+paths:
+  /inventory:
+    get:
+      summary: Отримання списку всіх речей
+      description: Повертає масив об'єктів з ID, назвою, описом та посиланням на фото.
+      responses:
+        200:
+          description: Успішний запит
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /register:
+    post:
+      summary: Реєстрація нового пристрою
+      description: Приймає дані форми та файл фотографії.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                inventory_name:
+                  type: string
+                description:
+                  type: string
+                photo:
+                  type: string
+                  format: binary
+      responses:
+        201:
+          description: Пристрій успішно створено
+  /inventory/{id}:
+    get:
+      summary: Отримання інформації про конкретну річ
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Інформація про річ
+        404:
+          description: Річ не знайдено
+    put:
+      summary: Оновлення імені або опису
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+      responses:
+        200:
+          description: Дані оновлено
+    delete:
+      summary: Видалення речі
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Річ видалено
+  /inventory/{id}/photo:
+    get:
+      summary: Отримання фотографії речі
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Файл зображення (image/jpeg)
+        404:
+          description: Фото не знайдено
+    put:
+      summary: Оновлення фотографії речі
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                photo:
+                  type: string
+                  format: binary
+      responses:
+        200:
+          description: Фото оновлено
+  /search:
+    post: # Або get, якщо ви змінили на get. Але в документації краще залишити як було в завданні.
+      summary: Пошук пристрою за ID
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                has_photo:
+                  type: string
+                  enum: [on, "true"]
+      responses:
+        200:
+          description: Знайдена річ
+        404:
+          description: Не знайдено

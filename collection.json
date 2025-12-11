@@ -1,0 +1,298 @@
+{
+	"info": {
+		"_postman_id": "a0863b91-d54e-46c8-9bd3-e36d7cf87595",
+		"name": "lab6",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50241373",
+		"_collection_link": "https://rakovychsofiya-5326625.postman.co/workspace/Sofiya-Rakovych's-Workspace~9a6db1ac-4de4-48f3-86d4-0eb0d4500e26/collection/50241373-a0863b91-d54e-46c8-9bd3-e36d7cf87595?action=share&source=collection_link&creator=50241373"
+	},
+	"item": [
+		{
+			"name": "Post new inventory",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "inventory_name",
+							"value": "laptop",
+							"type": "text"
+						},
+						{
+							"key": "photo",
+							"type": "file",
+							"src": "/C:/Users/Sofia/Pictures/578469064.webp"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get list inventory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/inventory",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"inventory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get inventory by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/inventory/1763663311667",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"inventory",
+						"1763663311667"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put new inform by id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Super Laptop\",\r\n  \"description\": \"Це оновлений опис\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/inventory/1763663311667",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"inventory",
+						"1763663311667"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get photo",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Super Laptop\",\r\n  \"description\": \"Це оновлений опис\"\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/inventory/1763663311667/photo",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"inventory",
+						"1763663311667",
+						"photo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put new photo",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "photo",
+							"type": "file",
+							"src": "/C:/Users/Sofia/Pictures/572683126.webp"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/inventory/1763663311667/photo",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"inventory",
+						"1763663311667",
+						"photo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete inventory",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Super Laptop\",\r\n  \"description\": \"Це оновлений опис\"\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/inventory/1763663311667",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"inventory",
+						"1763663311667"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RegisterForm",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/RegisterForm.html",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"RegisterForm.html"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchForm",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/SearchForm.html",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"SearchForm.html"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "1763663311667",
+							"type": "text"
+						},
+						{
+							"key": "has_photo",
+							"value": "on",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/search",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"search"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
